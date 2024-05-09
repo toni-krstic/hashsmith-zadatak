@@ -14,15 +14,15 @@ const formatedMiners = miners[19].values
 
 export default function HomePage() {
   return (
-    <main className="h-screen w-full p-4">
-      <div className="w-full">
-        <h3 className="p-2">{miners[19].name}</h3>
+    <main className="flex h-full w-full flex-col gap-3 rounded-md border-[1px] border-slate-400">
+      <div className="w-full border-b border-slate-400">
+        <h3 className="p-4">{miners[19].name}</h3>
       </div>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap justify-center gap-4 p-4">
         {formatedMiners.map((miners, i) => (
           <div
             key={`${miners ? `${miners[`${i}`]?.pdu}-${miners[`${i}`]?.port}` : "s"}`}
-            className="flex w-[420px] flex-wrap gap-2 rounded-md border-[1px] border-slate-400 p-4"
+            className="flex  w-[420px] flex-wrap gap-2 rounded-md border-[1px] border-slate-400 p-4"
           >
             {miners?.map((miner) => (
               <div key={`${miner.pdu}-${miner.port}s`}>
