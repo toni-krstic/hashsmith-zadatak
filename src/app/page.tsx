@@ -10,25 +10,37 @@ export default function HomePage() {
       <div className="w-full">
         <h3>{miners[19].name}</h3>
       </div>
-      <div>
+      <div className="flex flex-wrap gap-4">
         {miners[19].values.map((miners) => (
           <div key={`${miners.pdu}-${miners.port}`}>
             {miners.pdu === miners.port ? (
-              <div className="flex border-b border-slate-100">
+              <div className="flex w-1/2 flex-wrap gap-2 rounded-md border-[1px] border-slate-400 p-4">
                 {getMiner(miners.pdu).map((miner) => (
                   <div key={`${miner.pdu}-${miner.port}s`}>
                     {miner.s === 10 ? (
-                      <div className="bg-green-400">{miner.port}</div>
+                      <div className="rounded-md bg-green-600 p-4">
+                        {miner.port}
+                      </div>
                     ) : miner.s === 20 ? (
-                      <div className="bg-blue-400">{miner.port}</div>
+                      <div className="rounded-md bg-blue-600 p-4">
+                        {miner.port}
+                      </div>
                     ) : miner.s === 30 ? (
-                      <div className="bg-yellow-400">{miner.port}</div>
+                      <div className="rounded-md bg-yellow-600 p-4">
+                        {miner.port}
+                      </div>
                     ) : miner.s === 40 ? (
-                      <div className="bg-orange-400">{miner.port}</div>
+                      <div className="rounded-md bg-orange-600 p-4">
+                        {miner.port}
+                      </div>
                     ) : miner.s === 50 ? (
-                      <div className="bg-red-400">{miner.port}</div>
+                      <div className="rounded-md bg-red-400 p-4">
+                        {miner.port}
+                      </div>
                     ) : miner.s === 60 ? (
-                      <div className="bg-red-600">{miner.port}</div>
+                      <div className="rounded-md bg-red-600 p-4">
+                        {miner.port}
+                      </div>
                     ) : (
                       <></>
                     )}
