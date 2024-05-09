@@ -1,5 +1,12 @@
 import miners from "../assets/miners.json";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../components/ui/tooltip";
+
 const getMiner = (pdu: number) => {
   return miners[19].values.filter(
     (miner) => miner.pdu === pdu && miner.s !== undefined,
@@ -22,34 +29,118 @@ export default function HomePage() {
         {formatedMiners.map((miners, i) => (
           <div
             key={`${miners ? `${miners[`${i}`]?.pdu}-${miners[`${i}`]?.port}` : "s"}`}
-            className="flex  w-[420px] flex-wrap gap-2 rounded-md border-[1px] border-slate-400 p-4"
+            className="flex w-[390px] flex-wrap items-center  gap-2 rounded-md border-[1px] border-slate-400 p-4"
           >
             {miners?.map((miner) => (
               <div key={`${miner.pdu}-${miner.port}s`}>
                 {miner.s === 10 ? (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-green-600 p-4">
-                    {miner.port}
-                  </div>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="flex h-8 w-8 items-center justify-center rounded-md bg-green-600 p-4">
+                        {miner.port}
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>TH5s: {miner.TH5s}</p>
+                        <p>THAvg: {miner.THAvg}</p>
+                        <p>tB: {miner.tB}</p>
+                        <p>freq: {miner.freq}</p>
+                        <p>w: {miner.w}</p>
+                        <p>pdu: {miner.pdu}</p>
+                        <p>port: {miner.port}</p>
+                        <p>status: OK</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 ) : miner.s === 20 ? (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-600 p-4">
-                    {miner.port}
-                  </div>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-600 p-4">
+                        {miner.port}
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>TH5s: {miner.TH5s}</p>
+                        <p>THAvg: {miner.THAvg}</p>
+                        <p>tB: {miner.tB}</p>
+                        <p>freq: {miner.freq}</p>
+                        <p>w: {miner.w}</p>
+                        <p>pdu: {miner.pdu}</p>
+                        <p>port: {miner.port}</p>
+                        <p>status: -hashrate</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 ) : miner.s === 30 ? (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-yellow-600 p-4">
-                    {miner.port}
-                  </div>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="flex h-8 w-8 items-center justify-center rounded-md bg-yellow-600 p-4">
+                        {miner.port}
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>TH5s: {miner.TH5s}</p>
+                        <p>THAvg: {miner.THAvg}</p>
+                        <p>tB: {miner.tB}</p>
+                        <p>freq: {miner.freq}</p>
+                        <p>w: {miner.w}</p>
+                        <p>pdu: {miner.pdu}</p>
+                        <p>port: {miner.port}</p>
+                        <p>status: Warning</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 ) : miner.s === 40 ? (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-orange-600 p-4">
-                    {miner.port}
-                  </div>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="flex h-8 w-8 items-center justify-center rounded-md bg-orange-600 p-4">
+                        {miner.port}
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>TH5s: {miner.TH5s}</p>
+                        <p>THAvg: {miner.THAvg}</p>
+                        <p>tB: {miner.tB}</p>
+                        <p>freq: {miner.freq}</p>
+                        <p>w: {miner.w}</p>
+                        <p>pdu: {miner.pdu}</p>
+                        <p>port: {miner.port}</p>
+                        <p>status: minor error</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 ) : miner.s === 50 ? (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-red-400 p-4">
-                    {miner.port}
-                  </div>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="flex h-8 w-8 items-center justify-center rounded-md bg-red-400 p-4">
+                        {miner.port}
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>TH5s: {miner.TH5s}</p>
+                        <p>THAvg: {miner.THAvg}</p>
+                        <p>tB: {miner.tB}</p>
+                        <p>freq: {miner.freq}</p>
+                        <p>w: {miner.w}</p>
+                        <p>pdu: {miner.pdu}</p>
+                        <p>port: {miner.port}</p>
+                        <p>status: error</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 ) : miner.s === 60 ? (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-md bg-red-600 p-4">
-                    {miner.port}
-                  </div>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="flex h-8 w-8 items-center justify-center rounded-md bg-red-600 p-4">
+                        {miner.port}
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>TH5s: {miner.TH5s}</p>
+                        <p>THAvg: {miner.THAvg}</p>
+                        <p>tB: {miner.tB}</p>
+                        <p>freq: {miner.freq}</p>
+                        <p>w: {miner.w}</p>
+                        <p>pdu: {miner.pdu}</p>
+                        <p>port: {miner.port}</p>
+                        <p>status: critical error</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 ) : (
                   <></>
                 )}
