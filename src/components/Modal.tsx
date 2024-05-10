@@ -3,7 +3,6 @@
 import { useSearchParams } from "next/navigation";
 import miners from "../assets/miners.json";
 import { useRouter } from "next/navigation";
-import { Suspense } from "react";
 
 export const Modal = () => {
   const router = useRouter();
