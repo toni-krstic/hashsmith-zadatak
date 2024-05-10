@@ -2,7 +2,6 @@ import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
 import { Modal } from "~/components/Modal";
-import { Suspense } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,9 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
         {children}
-        <Suspense>
-          <Modal />
-        </Suspense>
+        <Modal />
       </body>
     </html>
   );
